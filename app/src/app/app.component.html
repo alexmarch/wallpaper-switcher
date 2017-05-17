@@ -1,0 +1,22 @@
+<div class="titlebar">
+  <div class="brand-icon"></div>
+  <div class="brand-title">
+    {{title}}
+  </div>
+</div>
+<div class="img-list" (scroll)="onScroll($event)">
+  <div class="img-item-col" *ngFor="let items of photos">
+    <div *ngFor="let item of items; let i = index" class="img-item-row">
+      <img src="{{item.urls.small}}"/>
+      <app-progress *ngIf="inProgress == item.id" [progress]="progress"></app-progress>
+      <button class="btn-set-bg" (click)="downloadFile(item, i)" [disabled]="inProgress">
+          To Desktop Wallpaper
+      </button>
+    </div>
+  </div>
+  <button class="btn-view-more" (click)="viewMore()">
+    View more
+    <small>Scroll down or click here</small>
+  </button>
+</div>
+

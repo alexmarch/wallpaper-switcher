@@ -1,0 +1,49 @@
+{
+  "name": "bgswitch",
+  "productName": "Bgswitch",
+  "version": "0.0.0",
+  "description": "My perfect app",
+  "license": "MIT",
+  "repository": "alexmarch/bgswitch",
+  "author": {
+    "name": "Alexander Marchenko",
+    "email": "maappdev@gmail.com",
+    "url": "bgswitch.github.io"
+  },
+  "scripts": {
+    "test": "xo",
+    "start": "./node_modules/concurrently/src/main.js \"npm run ng:app\" \"NODE_ENV=development electron .\"",
+    "ng:app": "cd app && ng build --watch",
+    "build:mac": "electron-packager . --out=release-builds --asar --overwrite --platform=darwin --arch=x64 --icon=./app/src/assets/icons/64x64.icns",
+    "postinstall": "cd app && npm install"
+  },
+  "files": [
+    "index.js",
+    "index.html",
+    "index.css"
+  ],
+  "keywords": [
+    "electron-app",
+    "electron"
+  ],
+  "dependencies": {
+    "electron-debug": "^1.0.0",
+    "electron-livereload": "0.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "devtron": "^1.1.0",
+    "electron": "^1.3.3",
+    "electron-packager": "^8.0.0",
+    "electron-reload": "^1.1.0",
+    "gulp-electron": "^0.1.3",
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "esnext": true,
+    "envs": [
+      "node",
+      "browser"
+    ]
+  }
+}
